@@ -39,13 +39,13 @@ create table book(
 	stars_id int references stars(id),
 	genre_1 int not null references genre(id),
 	genre_2 int references genre(id),
-	pages int NOT null
+	pages int not null,
+	owned bool
 	);
 
-create table rating_details(
+create table review_details(
 	id serial primary key,
 	book_id int not null references book(id),
-	author_id int not null references author(id),
 	stars_id int not null references stars(id),
 	review varchar(1000)
 	);
@@ -53,8 +53,18 @@ create table rating_details(
 create table reading_history(
 	id serial primary key,
 	book_id int not null references book(id),
-	author_id int not null references author(id),
 	date_started date,
 	date_finished date,
 	did_not_finish bool
 	);
+
+create table book_format(
+    id serial primary key,
+    format varchar(25) not null
+    );
+
+create table owned_books(
+    id serial primary key,
+    book_id int not null references book(id),
+    book_format_id int references book_format(id)
+    );
