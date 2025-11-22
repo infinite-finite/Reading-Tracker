@@ -38,7 +38,8 @@ create table book(
 	status_id int not null references status(id),
 	stars_id int references stars(id),
 	genre_1 int not null references genre(id),
-	genre_2 int references genre(id)
+	genre_2 int references genre(id),
+	pages int NOT null
 	);
 
 create table rating_details(
