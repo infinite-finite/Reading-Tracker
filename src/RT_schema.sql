@@ -50,7 +50,7 @@ create table review_details(
 create table reading_history(
 	id serial primary key,
 	book_id int not null references book(id),
-	date_started date,
+	date_started date not null,
 	date_finished date,
 	did_not_finish bool
 	);
