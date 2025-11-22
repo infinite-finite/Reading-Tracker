@@ -6,7 +6,11 @@ The Reading Tracker is a project that allows the user to track, rate, and review
 * Allow the user to track, rate, and review the books they've read and want to read
 * Provide detailed information about the user's reading history and books they own
 
-# Reading Tracker Database Structure
+## Reading Tracker Database Structure
+
+The Reading Tracker database was designed to be highly normalized in order to decrease redundancy and to increase efficiency storing the data.
+
+### Database Diagram
 
 ![DB diagram](/documents/Reading_Tracker_diagram.png)
 
@@ -24,12 +28,9 @@ The `book` table stores information about books the user has read or which they 
 | id | serial | primary key                     | unique identifier for each book record                                  |
 | title | varchar(500) | not null                        | the title of the book                                                   |
 | author_id | int | not null | foreign key referencing author(id)                                      |
-| status_id | int | not null | foreign key referencing status(id)                                      |
-| stars_id | int | | foreign key referencing stars(id)                                       |
 | genre_1 | int | not null | foreign key referencing genre(id) representing the book's primary genre |
 | genre_2 | int | | foreign key referencing genre(id) representing the book's secondary genre, if any |
 | pages | int | not null | the number of pages in the book |
-| owned | bool | | whether or not the user owns the book |
 
 ## Table: Author
 
@@ -100,7 +101,7 @@ The `reading_history` table contains information about which books the user has 
 | book_id     | int       | not null                        | foreign key referencing book(id)                                                      |
 | date_started | date | not null | the date the user started reading the book |
 | date_finished | date | | the date the user finished reading the book |
-| did_not_finish | bool | | optional field to denote books the user did not finish |
+| status_id | int | not null | foreign key referencing status(id)                                      |
 
 ## Table: Stars
 
