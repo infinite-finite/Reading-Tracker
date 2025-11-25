@@ -3,7 +3,6 @@ import random
 from datetime import date, timedelta
 
 start = date(2023, 1, 1)
-end = date(2025, 12, 31)
 
 def generate_random_date():
 
@@ -21,17 +20,17 @@ def generate_reading_history():
     reading_history_list = currently_reading + read_books
 
     with open('./files/reading_history.csv', 'w') as f:
-        f.write("book_id,date_started,date_finished,did_not_finish,\n")
+        f.write("book_id,date_started,date_finished,\n")
         for book in reading_history_list:
             reading_start_date = generate_random_date()
             random_read_time = random.randint(3, 24)
             if book in currently_reading:
-                f.write(f"({book}, '{reading_start_date}', NULL, NULL),\n")
+                f.write(f"({book}, '{reading_start_date}', NULL),\n")
             else:
                 read_time = timedelta(days=random_read_time)
                 end_date = reading_start_date + read_time
-                f.write(f"({book}, '{reading_start_date}', '{end_date}', NULL),\n")
-        f.write("(7,'2023-11-19',NULL,TRUE)")
+                f.write(f"({book}, '{reading_start_date}', '{end_date}'),\n")
+        f.write("(7,'2023-11-19',NULL)")
 
 
 generate_reading_history()
