@@ -16,27 +16,21 @@ def generate_random_date():
 
 def generate_reading_history():
 
-    total_books = 75
-    counter = 0
-    reading_history_list = []
     currently_reading = [20, 23, 30]
+    read_books = [1, 2, 3, 5, 6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 25, 28, 31, 35, 37, 38, 41, 42, 43, 44, 45, 47, 50, 51, 52, 53, 55, 56, 57, 58, 59, 60, 61, 62, 64, 65, 66, 68, 69, 70, 71, 72, 73, 74, 75, 77, 78, 79, 80, 81, 82, 83, 84, 86]
+    reading_history_list = currently_reading + read_books
 
     with open('./files/reading_history.csv', 'w') as f:
         f.write("book_id,date_started,date_finished,did_not_finish,\n")
-        while counter < total_books:
-            book = random.randint(1, 86)
-            if book not in reading_history_list:
-                reading_history_list.append(book)
-                counter = counter + 1
-        for i in reading_history_list:
+        for book in reading_history_list:
             reading_start_date = generate_random_date()
             random_read_time = random.randint(3, 24)
             if book in currently_reading:
-                f.write(f"({i}, '{reading_start_date}', NULL, NULL),\n")
+                f.write(f"({book}, '{reading_start_date}', NULL, NULL),\n")
             else:
                 read_time = timedelta(days=random_read_time)
                 end_date = reading_start_date + read_time
-                f.write(f"({i}, '{reading_start_date}', '{end_date}', NULL),\n")
+                f.write(f"({book}, '{reading_start_date}', '{end_date}', NULL),\n")
         f.write("(7,'2023-11-19',NULL,TRUE)")
 
 
