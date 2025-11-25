@@ -12,7 +12,7 @@ The Reading Tracker database was designed to be highly normalized in order to de
 
 ### Database Diagram
 
-![DB diagram](/documents/Reading_Tracker_diagram.png)
+
 
 <details>
 <summary>Expand for Detailed Table Information</summary>
