@@ -23,14 +23,13 @@ The `book` table stores information about books the user has read or which they 
 
 ### Columns
 
-| Column Name | Data Type | Constraints                     | Description                                                             |
-| :--- | :--- |:--------------------------------|:------------------------------------------------------------------------|
-| id | serial | primary key                     | unique identifier for each book record                                  |
-| title | varchar(500) | not null                        | the title of the book                                                   |
-| author_id | int | not null | foreign key referencing author(id)                                      |
-| genre_1 | int | not null | foreign key referencing genre(id) representing the book's primary genre |
-| genre_2 | int | | foreign key referencing genre(id) representing the book's secondary genre, if any |
-| pages | int | not null | the number of pages in the book |
+| Column Name | Data Type | Constraints                     | Description                                         |
+|:------------| :--- |:--------------------------------|:----------------------------------------------------|
+| id          | serial | primary key                     | unique identifier for each book record              |
+| title       | varchar(500) | not null                        | the title of the book                               |
+| author_id   | int | not null | foreign key referencing author(id)                  |
+| genre       | int | not null | foreign key referencing genre(id)                   |
+| pages       | int | not null | the number of pages in the book                     |
 
 ## Table: Author
 
