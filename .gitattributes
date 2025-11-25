@@ -1,2 +1,5 @@
     *.sql linguist-detectable=true
     *.sql linguist-language=SQL
+    *.py linguist-language=Python
+    *.pyi linguist-language=Python
+    *.py linguist-detectable=true
