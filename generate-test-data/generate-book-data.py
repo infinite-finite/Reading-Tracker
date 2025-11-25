@@ -19,7 +19,9 @@ def generate_book_list():
                 author = random.randint(1, 55)
                 genre = random.randint(1, 22)
                 pages = random.randint(81, 1034)
-                f.write(f"('{i}', {author}, {genre}, {pages}),\n")
+                status_choices = [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 4, 4, 4, 2, 2, 2, 4, 4, 2, 5, 2, 4, 4, 4]
+                status = random.choice(status_choices)
+                f.write(f"('{i}', {author}, {genre}, {pages}, {status}),\n")
 
 
 
