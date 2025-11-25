@@ -9,7 +9,7 @@ def generate_owned_books():
     owned_book_list = []
 
     with open('./files/owned_book_list.csv', 'w') as f:
-        f.write("book_id,book_format_id\n")
+        f.write("book_id,book_format_id,\n")
         while counter < total_owned_books:
             book = random.randint(1, 86)
             if book not in owned_book_list:
