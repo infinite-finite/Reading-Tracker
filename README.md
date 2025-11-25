@@ -127,3 +127,13 @@ The `review_details` table contains the information from the user when reviewing
 | review | varchar(1000) | | optional field for the user to leave a written review about the book |
 
 </details>
+
+### Test Data
+
+There is a list of SQL statements to populate the Reading Tracker database with test data that can be found in the RT_schema.sql file in the src directory.
+I wrote some of these statements using test data I generated with the Python scripts I created in the generate-test-data directory. 
+Please note that most of these scripts produce a new file in the files subdirectory that contains randomized data each time the script is run.
+I have put the output I used into the populate-db subdirectory.
+
+## Queries
+
