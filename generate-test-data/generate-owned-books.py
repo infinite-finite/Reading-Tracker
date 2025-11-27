@@ -8,7 +8,7 @@ def generate_owned_books():
     counter = 0
     owned_book_list = []
 
-    with open('populate-db/owned_book_list.csv', 'w') as f:
+    with open('files/owned_book_list.csv', 'w') as f:
         f.write("book_id,book_format_id,\n")
         while counter < total_owned_books:
             book = random.randint(1, 86)

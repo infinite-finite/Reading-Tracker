@@ -7,7 +7,7 @@ read_books = [1, 2, 3, 5, 6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 25, 28, 31, 
 
 def generate_review_details():
 
-    with open ('populate-db/review_details.csv', 'w') as f:
+    with open ('files/review_details.csv', 'w') as f:
         f.write("book_id, stars_id, review,\n")
         for book in read_books:
             star_rating = random.randint(1, 5)
