@@ -19,7 +19,7 @@ def generate_reading_history():
     read_books = [1, 2, 3, 5, 6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 25, 28, 31, 35, 37, 38, 41, 42, 43, 44, 45, 47, 50, 51, 52, 53, 55, 56, 57, 58, 59, 60, 61, 62, 64, 65, 66, 68, 69, 70, 71, 72, 73, 74, 75, 77, 78, 79, 80, 81, 82, 83, 84, 86]
     reading_history_list = currently_reading + read_books
 
-    with open('populate-db/reading_history.csv', 'w') as f:
+    with open('files/reading_history.csv', 'w') as f:
         f.write("book_id,date_started,date_finished,\n")
         for book in reading_history_list:
             reading_start_date = generate_random_date()

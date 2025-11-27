@@ -6,11 +6,11 @@ The Reading Tracker is a project that allows the user to track, rate, and review
 * Allow the user to track, rate, and review the books they've read and want to read
 * Provide detailed information about the user's reading history and books they own
 
-## Reading Tracker Database Structure
+# Reading Tracker Database Structure
 
 The Reading Tracker database was designed to be highly normalized in order to decrease redundancy and to increase efficiency storing the data.
 
-### Database Diagram
+## Database Diagram
 
 ![DB diagram](/documents/Reading_Tracker_diagram.png)
 
@@ -128,12 +128,33 @@ The `review_details` table contains the information from the user when reviewing
 
 </details>
 
-### Test Data
+## Test Data
 
 There is a list of SQL statements to populate the Reading Tracker database with test data that can be found in the RT_schema.sql file in the src directory.
 I wrote some of these statements using test data I generated with the Python scripts I created in the generate-test-data directory. 
-Please note that most of these scripts produce a new file in the files subdirectory that contains randomized data each time the script is run.
-I have put the output I used into the populate-db subdirectory.
+Please note that most of these scripts produce a new file in the files subdirectory. These files contain new randomized data each time the script is run, so I put the files containing the output I used into the populate-db subdirectory.
 
-## Queries
+# Queries
 
+In the RT_queries.sql file in the src directory, there is a list of queries that can be used to provide information to the user about the books they've read and want to read.
+
+## Queries (General)
+
+* book collection organized by book format and alphabetically by author's last name
+* want to read list
+* did not finish list
+* currently reading list
+
+## Queries (By Year, and All Time)
+
+* total books read
+* list of books read
+* total pages read
+* average reading time
+* average star rating
+* top read genre
+* top read book format
+
+# Reports
+
+🚧 work in progress 🚧
