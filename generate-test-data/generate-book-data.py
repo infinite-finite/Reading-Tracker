@@ -10,7 +10,7 @@ def generate_book_list():
         total_books = 86
         book_list = []
         with open('files/book_list.csv', 'w') as f:
-            f.write("title,author_id,genre,pages,\n")
+            f.write("title,author_id,genre_id,pages,\n")
             while total_books > counter:
                 counter = counter + 1
                 book_title = f"Title {counter}"

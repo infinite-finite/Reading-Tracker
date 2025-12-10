@@ -28,7 +28,7 @@ The `book` table stores information about books the user has read or which they 
 | id          | serial | primary key                     | unique identifier for each book record              |
 | title       | varchar(500) | not null                        | the title of the book                               |
 | author_id   | int | not null | foreign key referencing author(id)                  |
-| genre       | int | not null | foreign key referencing genre(id)                   |
+| genre_id    | int | not null | foreign key referencing genre(id)                   |
 | pages       | int | not null | the number of pages in the book                     |
 
 ## Table: Author

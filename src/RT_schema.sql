@@ -35,7 +35,7 @@ create table book(
 	id serial primary key,
 	title varchar(500) not null,
 	author_id int not null references author(id),
-	genre int not null references genre(id),
+	genre_id int not null references genre(id),
 	pages int not null,
 	status_id int not null references status(id)
 	);
@@ -181,7 +181,7 @@ values
 	('fname55', 'lname55');
 
 -- create book records
-insert into book (title, author_id, genre, pages, status_id)
+insert into book (title, author_id, genre_id, pages, status_id)
 values
 	('Title 1', 17, 9, 709, 2),
     ('Title 2', 6, 5, 656, 2),

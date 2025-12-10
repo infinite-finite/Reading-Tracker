@@ -1,4 +1,4 @@
-title,author_id,genre,pages,
+title,author_id,genre_id,pages,
 ('Title 1', 14, 15, 731, 4),
 ('Title 2', 37, 5, 430, 2),
 ('Title 3', 54, 16, 697, 2),
