@@ -9,15 +9,6 @@ select count(id) "Total Books Read"
 from book
 where status_id = 2
 
-
--- list of books read, all time
-
-select b.title, a.first_name, a.last_name
-from book b
-join author a
-on b.author_id = a.id
-where b.status_id = 2
-
 -- did not finish
 
 select b.title, a.first_name, a.last_name

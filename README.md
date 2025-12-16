@@ -12,7 +12,7 @@ The Reading Tracker database was designed to be highly normalized in order to de
 
 ## Database Diagram
 
-![DB diagram](/documents/Reading_Tracker_diagram.png)
+![A diagram visually representing the relationships between each of the tables in the Reading-Tracker database.](/documents/Reading_Tracker_diagram.png "Database diagram")
 
 <details>
 <summary>Expand for Detailed Table Information</summary>
@@ -23,13 +23,13 @@ The `book` table stores information about books the user has read or which they 
 
 ### Columns
 
-| Column Name | Data Type | Constraints                     | Description                                         |
-|:------------| :--- |:--------------------------------|:----------------------------------------------------|
-| id          | serial | primary key                     | unique identifier for each book record              |
-| title       | varchar(500) | not null                        | the title of the book                               |
-| author_id   | int | not null | foreign key referencing author(id)                  |
-| genre_id    | int | not null | foreign key referencing genre(id)                   |
-| pages       | int | not null | the number of pages in the book                     |
+| Column Name | Data Type    | Constraints | Description                            |
+|:------------|:-------------|:------------|:---------------------------------------|
+| id          | serial       | primary key | unique identifier for each book record |
+| title       | varchar(500) | not null    | the title of the book                  |
+| genre_id    | int          | not null    | foreign key referencing genre(id)      |
+| pages       | int          | not null    | the number of pages in the book        |
+| status_id   | int          | not null    | foreign key referencing status(id)     |
 
 ## Table: Author
 
@@ -37,11 +37,23 @@ The `author` table stores the list of authors associated with the books in the `
 
 ### Columns
 
-| Column Name | Data Type   | Constraints                     | Description                              |
-|:------------|:------------|:--------------------------------|:-----------------------------------------|
-| id          | serial      | primary key                     | unique identifier for each author record |
-| first_name  | varchar(50) | not null                        | the author's first name                  |
-| last_name | varchar(50) | not null | the author's last name |
+| Column Name | Data Type   | Constraints | Description                              |
+|:------------|:------------|:------------|:-----------------------------------------|
+| id          | serial      | primary key | unique identifier for each author record |
+| first_name  | varchar(50) | not null    | the author's first name                  |
+| last_name   | varchar(50) | not null    | the author's last name                   |
+
+## Table: Book-Author
+
+The `book-author` table contains records that associate books from the `book` table to their respective author(s) from the `author` table, allowing for both books with multiple authors and authors who have written multiple books.
+
+### Columns
+
+| Column Name | Data Type | Constraints | Description                                   |
+|:------------|:----------|:------------|:----------------------------------------------|
+| id          | serial    | primary key | unique identifier for each book-author record |
+| book_id     | int       | not null    | foreign key referencing book(id)              |
+| author_id   | int       | not null    | foreign key referencing author(id)            |
 
 ## Table: Genre
 
@@ -60,11 +72,11 @@ The `owned_books` table stores information about which books in the `books` tabl
 
 ### Columns
 
-| Column Name    | Data Type | Constraints                     | Description                                  |
-|:---------------|:----------|:--------------------------------|:---------------------------------------------|
-| id             | serial    | primary key                     | unique identifier for each owned book record |
-| book_id        | int       | not null                        | foreign key referencing book(id)             |
-| book_format_id | int       | not null | foreign key referencing book_format(id)      |
+| Column Name    | Data Type | Constraints | Description                                  |
+|:---------------|:----------|:------------|:---------------------------------------------|
+| id             | serial    | primary key | unique identifier for each owned book record |
+| book_id        | int       | not null    | foreign key referencing book(id)             |
+| book_format_id | int       | not null    | foreign key referencing book_format(id)      |
 
 ## Table: Book Format
 
@@ -94,13 +106,13 @@ The `reading_history` table contains information about which books the user has 
 
 ### Columns
 
-| Column Name | Data Type | Constraints                     | Description                                                                           |
-|:------------|:----------|:--------------------------------|:--------------------------------------------------------------------------------------|
-| id          | serial    | primary key                     | unique identifier for each reading history record                                     |
-| book_id     | int       | not null                        | foreign key referencing book(id)                                                      |
-| date_started | date | not null | the date the user started reading the book |
-| date_finished | date | | the date the user finished reading the book |
-| status_id | int | not null | foreign key referencing status(id)                                      |
+| Column Name   | Data Type | Constraints | Description                                       |
+|:--------------|:----------|:------------|:--------------------------------------------------|
+| id            | serial    | primary key | unique identifier for each reading history record |
+| book_id       | int       | not null    | foreign key referencing book(id)                  |
+| date_started  | date      | not null    | the date the user started reading the book        |
+| date_finished | date      |             | the date the user finished reading the book       |
+| status_id     | int       | not null    | foreign key referencing status(id)                |
 
 ## Table: Stars
 
@@ -108,10 +120,10 @@ The `stars` table contains the list of star ratings the user can assign to a boo
 
 ### Columns
 
-| Column Name | Data Type   | Constraints                     | Description                            |
-|:------------|:------------|:--------------------------------|:---------------------------------------|
-| id          | serial      | primary key                     | unique identifier for each star record |
-| star_rating | varchar(30) | not null                        | star rating |
+| Column Name | Data Type   | Constraints | Description                            |
+|:------------|:------------|:------------|:---------------------------------------|
+| id          | serial      | primary key | unique identifier for each star record |
+| star_rating | varchar(30) | not null    | star rating                            |
 
 ## Table: Review Details
 
@@ -119,12 +131,12 @@ The `review_details` table contains the information from the user when reviewing
 
 ### Columns
 
-| Column Name | Data Type | Constraints                     | Description                              |
-|:------------|:----------|:--------------------------------|:-----------------------------------------|
-| id          | serial    | primary key                     | unique identifier for each review record |
-| book_id     | int       | not null                        | foreign key referencing book(id)         |
-| stars_id    | int       | not null | foreign key referencing stars(id)        |
-| review | varchar(1000) | | optional field for the user to leave a written review about the book |
+| Column Name | Data Type     | Constraints | Description                                                          |
+|:------------|:--------------|:------------|:---------------------------------------------------------------------|
+| id          | serial        | primary key | unique identifier for each review record                             |
+| book_id     | int           | not null    | foreign key referencing book(id)                                     |
+| stars_id    | int           | not null    | foreign key referencing stars(id)                                    |
+| review      | varchar(1000) |             | optional field for the user to leave a written review about the book |
 
 </details>
 
