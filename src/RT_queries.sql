@@ -3,6 +3,8 @@ Queries
 by Kelly Brown
 */
 
+-- TODO update queries for multiple authors
+
 -- total books read, all time
 
 select count(id) "Total Books Read"
